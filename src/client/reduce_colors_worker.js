@@ -8,6 +8,7 @@ onmessage = function (oEvent) {
   load_colors(oEvent.data.new_colors);
   var pixelData = oEvent.data.pixelData;
   colourSpace = oEvent.data.colourSpace;
+  lessShade = oEvent.data.lessShade;
   dithering = oEvent.data.dithering;
   transparencyThreshold = parseInt(oEvent.data.transparency, 10);
 
@@ -65,6 +66,9 @@ function reduce_colors_map(a, b, c, d, pixelData) {
   closestDistance = Number.MAX_VALUE;
   var k = 0;
   for (k = 1; k < minecraftcolors.length; k++) {
+    if (lessShade == 'yes' && k % 4 == 0) {
+      continue;
+    }
     distance = color.distanceTo(compareColors[k]);
     if (distance < closestDistance) {
       closestDistance = distance;

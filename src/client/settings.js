@@ -6,6 +6,7 @@ $(document).ready(function() {
   var zcenter = Cookies.get('zcenter') || '0';
   var dim = Cookies.get('dimension') || '0';
   var newColors = Cookies.get('newColors') || '181';
+  var lessShade = Cookies.get('lessShade') || 'no';
   var dithering = Cookies.get('dithering') || 'no';
   var interpolation = Cookies.get('interpolation') || 'standard';
   var transparency = Cookies.get('transparency') || '50';
@@ -15,6 +16,7 @@ $(document).ready(function() {
   $('#z_center').val(zcenter);
   $('#dimension').val(dim);
   $('#newColors').val(newColors);
+  $('#lessShade').val(lessShade);
   $('#dithering').val(dithering);
   $('#interpolation').val(interpolation);
   $('#transparency').val(transparency);
@@ -31,6 +33,7 @@ function savesettings(event) {
   var zcenter = $('#z_center').val();
   var dim = $('#dimension').val();
   var newColors = $('#newColors').val();
+  var lessShade = $('#lessShade').val();
   var dithering = $('#dithering').val();
   var interpolation = $('#interpolation').val();
   var transparency = $('#transparency').val();
@@ -39,6 +42,7 @@ function savesettings(event) {
   Cookies.set('zcenter', zcenter);
   Cookies.set('dimension', dim);
   Cookies.set('newColors', newColors);
+  Cookies.set('lessShade', lessShade);
   Cookies.set('dithering', dithering);
   Cookies.set('interpolation', interpolation);
   Cookies.set('transparency', transparency);

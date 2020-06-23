@@ -196,6 +196,7 @@ function reducecolors(ev) {
 
   worker.postMessage({pixelData: pixelData,
     new_colors: Cookies.get('newColors') || '181',
+    lessShade: Cookies.get('lessShade') || 'no',
     colourSpace: Cookies.get('colourSpace') || 'laba',
     dithering: Cookies.get('dithering') || 'no',
     transparency: Cookies.get('transparency') || '50'
@@ -417,6 +418,10 @@ function list_settings() {
     '17w06a': 'Snapshot 17w06a',
     '112': 'Version 1.12 (2017)'
   };
+  var insertModeToText = {
+    'no': 'File',
+    'yes': 'Build'
+  };
   var dimensionToText = {
     '0': 'Overworld',
     '1': 'Nether',
@@ -432,6 +437,7 @@ function list_settings() {
   };
   var sett_colorSpace = Cookies.get('colourSpace') || 'laba';
   var sett_colorScheme = colorSchemeToText[Cookies.get('newColors') || 'yes'];
+  var sett_insertMode = insertModeToText[Cookies.get('lessShade') || 'no'];
   var sett_dithering = ditheringToText[Cookies.get('dithering') || 'no'];
   var sett_interpolation = interpolationToText[Cookies.get('interpolation') || 'standard'];
   var sett_xCenter = Cookies.get('xcenter') || '0';
@@ -440,6 +446,7 @@ function list_settings() {
 
   settings_string = '<tr><td>Color space</td><td>' + sett_colorSpace + '</td></tr>';
   settings_string += '<tr><td>Color scheme</td><td>' + sett_colorScheme + '</td></tr>';
+  settings_string += '<tr><td>Insert mode</td><td>' + sett_insertMode + '</td></tr>';
   settings_string += '<tr><td>Dithering</td><td>' + sett_dithering + '</td></tr>';
   settings_string += '<tr><td>Interpolation</td><td>' + sett_interpolation + '</td></tr>';
   settings_string += '<tr><td>X Center</td><td>' + sett_xCenter + '</td></tr>';
